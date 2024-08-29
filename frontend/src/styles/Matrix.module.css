@@ -1,0 +1,141 @@
+/* Center the container and limit its width */
+.container {
+  max-width: 1300;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-right: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.step:last-child {
+  border-right: 1px solid #ccc;
+}
+
+.activeStep {
+  background-color: #2e14a0;
+  color: white;
+}
+
+.questionContainer {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.answers button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.answers button:hover {
+  background-color: #45a049;
+}
+
+.loading {
+  font-size: 1.5em;
+  color: #555;
+}
+
+.matrixTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tableCell {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 1em;
+  color: #555;
+}
+
+.matrixHeader {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-size: 1.1em;
+}
+
+.level1 {
+  background-color: rgba(255, 0, 0, 1);
+  color: white;
+}
+
+.level2 {
+  background-color: rgba(255, 165, 0, 1);
+  color: white;
+}
+
+.level3 {
+  background-color: rgba(255, 255, 0, 1);
+  color: black;
+}
+
+.level4 {
+  background-color: rgba(173, 255, 47, 1);
+  color: white;
+}
+
+.level5 {
+  background-color: rgba(0, 128, 0, 1);
+  color: white;
+}
+
+.level1Faded {
+  background-color: rgba(255, 0, 0, 0.3);
+  color: black;
+}
+
+.level2Faded {
+  background-color: rgba(255, 165, 0, 0.3);
+  color: black;
+}
+
+.level3Faded {
+  background-color: rgba(255, 255, 0, 0.3);
+  color: black;
+}
+
+.level4Faded {
+  background-color: rgba(173, 255, 47, 0.3);
+  color: black;
+}
+
+.level5Faded {
+  background-color: rgba(0, 128, 0, 0.3);
+  color: black;
+}
+
+.evaluated {
+  border: 2px solid #000; /* Black border for evaluated cells */
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.75); /* Add shadow for better visibility */
+}

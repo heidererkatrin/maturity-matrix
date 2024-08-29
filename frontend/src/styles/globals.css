@@ -1,0 +1,159 @@
+/* Reset some default browser styles */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section,
+summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1.5;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  padding: 20px;
+}
+
+h1, h2 {
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 1em;
+  color: #555;
+  display: inline-block; /* Ensures labels and checkboxes are on the same line */
+  margin-left: 5px; /* Space between checkbox and label text */
+}
+
+input, select, .checkbox-label {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1em;
+  background-color: #fff;
+  transition: border 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #0070f3;
+  outline: none;
+}
+
+input[type="checkbox"] {
+  width: auto; /* Let checkboxes size naturally */
+  margin-right: 10px; /* Space between checkbox and label */
+  vertical-align: middle; /* Align checkbox with label text */
+}
+
+button {
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background-color: #0070f3;
+  color: white;
+}
+
+button.primary:hover {
+  background-color: #005bb5;
+}
+
+button.secondary {
+  background-color: #e1e1e1;
+  color: #333;
+}
+
+button.secondary:hover {
+  background-color: #cfcfcf;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.step-navigation button {
+  min-width: 120px; /* Set a minimum width to make buttons uniform */
+  margin: 0;
+  padding: 8px 16px;
+  font-size: 0.9em;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #e1e1e1;
+  color: #333;
+  text-align: center; /* Ensure text is centered */
+}
+
+.step-navigation button:not(:last-child) {
+  border-right: 1px solid #fff;
+}
+
+.step-navigation button.active {
+  background-color: #0070f3;
+  color: white;
+}
+
+.step-navigation button.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
