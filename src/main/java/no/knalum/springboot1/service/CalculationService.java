@@ -1,7 +1,6 @@
 package no.knalum.springboot1.service;
 
 import no.knalum.springboot1.dto.AnswerDTO;
-import no.knalum.springboot1.dto.AnswerOptionDTO;
 import no.knalum.springboot1.dto.MatrixResultDTO;
 import no.knalum.springboot1.entities.AnswerOption;
 import no.knalum.springboot1.entities.Question;

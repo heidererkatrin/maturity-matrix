@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import MatrixTable from './MatrixTable';
+import QuestionAnswerSection from './QuestionAnswerSection'; // Import the new component
 import styles from '../../styles/Matrix.module.css';
 
 interface Question {
@@ -32,11 +33,10 @@ interface MatrixResult {
 }
 
 interface MatrixStepperProps {
-  matrixType: string;
+  matrixType?: string;
 }
 
 const MatrixStepper: React.FC<MatrixStepperProps> = ({ matrixType }) => {
-  // Ensure matrixType is always uppercase
   const upperCaseMatrixType = matrixType ? matrixType.toUpperCase() : '';
 
   const [categories, setCategories] = useState<string[]>([]);
@@ -51,7 +51,6 @@ const MatrixStepper: React.FC<MatrixStepperProps> = ({ matrixType }) => {
   const [isCompleted, setIsCompleted] = useState(false);
   const [answerOptions, setAnswerOptions] = useState<AnswerOption[]>([]);
 
-  // Function to fetch answer options
   const fetchAnswerOptions = async (questionId: number) => {
     try {
       const response = await axios.get<AnswerOption[]>(`/api/answerOption/${questionId}`);
@@ -101,7 +100,11 @@ const MatrixStepper: React.FC<MatrixStepperProps> = ({ matrixType }) => {
       }
     };
 
-    fetchQuestionsAndDescriptions();
+    if (upperCaseMatrixType) {
+      fetchQuestionsAndDescriptions();
+    } else {
+      console.error('matrixType is undefined or empty.');
+    }
   }, [upperCaseMatrixType]);
 
   useEffect(() => {
@@ -113,6 +116,7 @@ const MatrixStepper: React.FC<MatrixStepperProps> = ({ matrixType }) => {
   const handleAnswer = (evaluationPoints: number) => {
     const question = questions[currentCategory][currentQuestionIndex];
     const newAnswer: AnswerDTO = { questionId: question.id, evaluationPoints, categories: question.categories };
+    console.log("evaluation points: " + evaluationPoints)
     const updatedAnswers = [...answers, newAnswer];
     setAnswers(updatedAnswers);
 
@@ -124,7 +128,6 @@ const MatrixStepper: React.FC<MatrixStepperProps> = ({ matrixType }) => {
         setCurrentCategory(categories[nextCategoryIndex]);
         setCurrentQuestionIndex(0);
       } else {
-        // All questions answered, submit answers
         setIsCompleted(true);
         axios.post('/api/matrixResult', updatedAnswers)
           .then(response => {
@@ -158,17 +161,13 @@ const MatrixStepper: React.FC<MatrixStepperProps> = ({ matrixType }) => {
         <div className={`${styles.step} ${isCompleted ? styles.activeStep : ''}`}>Results</div>
       </div>
       {currentQuestion ? (
-        <div className={styles.questionContainer}>
-          <h2>{categoryTexts[currentCategory] || currentCategory}</h2>
-          <p>{currentQuestion.text}</p>
-          <div className={styles.answers}>
-            {answerOptions.map((option, index) => (
-              <button key={index} onClick={() => handleAnswer(option.evaluationPoints)}>
-                {option.text}
-              </button>
-            ))}
-          </div>
-        </div>
+        <QuestionAnswerSection
+          currentCategory={currentCategory}
+          currentQuestion={currentQuestion}
+          answerOptions={answerOptions}
+          handleAnswer={handleAnswer}
+          categoryText={categoryTexts[currentCategory] || currentCategory}
+        />
       ) : (
         isCompleted && (
           <MatrixTable

@@ -15,13 +15,14 @@ public class AnswerOption {
     private String text;
 
     private Long questionId;
+    private String testi = "abc";
 
-    private int evaluationPoint;
+    private int evaluationPoints;
 
-    public AnswerOption( Long questionId,String text, int evaluationPoint) {
+    public AnswerOption( Long questionId,String text, int evaluationPoints) {
         this.text = text;
         this.questionId = questionId;
-        this.evaluationPoint = evaluationPoint;
+        this.evaluationPoints = evaluationPoints;
     }
 
     public AnswerOption() {
@@ -52,11 +53,11 @@ public class AnswerOption {
         this.questionId = questionId;
     }
 
-    public int getEvaluationPoint() {
-        return evaluationPoint;
+    public int getEvaluationPoints() {
+        return evaluationPoints;
     }
 
-    public void setEvaluationPoint(int evaluationPoint) {
-        this.evaluationPoint = evaluationPoint;
+    public void setEvaluationPoints(int evaluationPoints) {
+        this.evaluationPoints = evaluationPoints;
     }
 }

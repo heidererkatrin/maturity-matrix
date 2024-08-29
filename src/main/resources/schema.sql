@@ -32,6 +32,6 @@ CREATE TABLE Answer_Option (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     text VARCHAR(767) NOT NULL,
     question_id BIGINT,
-    evaluation_point INT NOT NULL,
+    evaluation_points INT NOT NULL,
     FOREIGN KEY (question_id) REFERENCES Question(id)
 );

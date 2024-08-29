@@ -49,7 +49,7 @@ public class MatrixController {
     }
 
     @GetMapping("/api/answerOption/{questionId}")
-    public ResponseEntity<List<AnswerOption>> getAnswerOptionForQuestion(@PathVariable Long questionId) {
+    public ResponseEntity<List<AnswerOption>> getAnswerOptionForQuestion(@PathVariable Long questionId) throws Exception {
         List<AnswerOption> answerOptionsByQuestionId = calculationService.getAnswerOptionsByQuestionId(questionId);
         return ResponseEntity.ok(answerOptionsByQuestionId);
     }
