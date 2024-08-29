@@ -2,6 +2,7 @@ package no.knalum.springboot1.web;
 
 import no.knalum.springboot1.dto.AnswerDTO;
 import no.knalum.springboot1.dto.MatrixResultDTO;
+import no.knalum.springboot1.entities.AnswerOption;
 import no.knalum.springboot1.entities.MatrixDescription;
 import no.knalum.springboot1.entities.Question;
 import no.knalum.springboot1.enums.Category;
@@ -45,6 +46,12 @@ public class MatrixController {
     public ResponseEntity<String> getCategoryText(@PathVariable String categoryName) {
         String categoryText = calculationService.getCategoryText(categoryName);
         return ResponseEntity.ok(categoryText);
+    }
+
+    @GetMapping("/api/answerOption/{questionId}")
+    public ResponseEntity<List<AnswerOption>> getAnswerOptionForQuestion(@PathVariable Long questionId) {
+        List<AnswerOption> answerOptionsByQuestionId = calculationService.getAnswerOptionsByQuestionId(questionId);
+        return ResponseEntity.ok(answerOptionsByQuestionId);
     }
 
     @GetMapping("/api/questions")

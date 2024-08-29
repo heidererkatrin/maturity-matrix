@@ -1,10 +1,13 @@
 package no.knalum.springboot1.service;
 
 import no.knalum.springboot1.dto.AnswerDTO;
+import no.knalum.springboot1.dto.AnswerOptionDTO;
 import no.knalum.springboot1.dto.MatrixResultDTO;
+import no.knalum.springboot1.entities.AnswerOption;
 import no.knalum.springboot1.entities.Question;
 import no.knalum.springboot1.enums.Category;
 import no.knalum.springboot1.enums.MatrixType;
+import no.knalum.springboot1.repositories.AnswerOptionRepository;
 import no.knalum.springboot1.repositories.MatrixDescriptionRepository;
 import no.knalum.springboot1.repositories.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,10 @@ public class CalculationService {
 
     @Autowired
     private MatrixDescriptionRepository matrixDescriptionRepository;
+
+    @Autowired
+    private AnswerOptionRepository answerOptionRepository;
+
 
 
     private int calculateLevelForCategory(List<AnswerDTO> answers) {
@@ -94,5 +101,22 @@ public class CalculationService {
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("Invalid category name: " + categoryName);
         }
+    }
+
+    public List<AnswerOption> getAnswerOptionsByQuestionId(Long questionId){
+
+        List<AnswerOption> all = answerOptionRepository.findAll();
+        List<AnswerOption> list = all.stream().filter(answerOption -> answerOption.getQuestionId().equals(questionId)).toList();
+        if (list.isEmpty()){
+            List<AnswerOption> defaultList = new ArrayList<>();
+            defaultList.add(new AnswerOption(questionId, "Strongly Disagree", -2));
+            defaultList.add(new AnswerOption(questionId, "Somewhat Disagree", -1));
+            defaultList.add(new AnswerOption(questionId, "Cannot Say", -0));
+            defaultList.add(new AnswerOption(questionId, "Somewhat Agree", 1));
+            defaultList.add(new AnswerOption(questionId, "Strongly Agreee", 2));
+            return defaultList;
+        }
+
+        return list;
     }
 }

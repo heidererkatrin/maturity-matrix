@@ -1,4 +1,4 @@
-import MatrixStepper from '../components/MatrixStepper';
+import MatrixStepper from '../components/matrix/MatrixStepper';
 import styles from '../styles/Matrix.module.css';
 
 const MatrixPage: React.FC = () => {

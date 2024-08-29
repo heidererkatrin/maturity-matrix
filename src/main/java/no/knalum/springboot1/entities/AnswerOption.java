@@ -7,6 +7,7 @@ import no.knalum.springboot1.enums.MatrixType;
 import java.util.List;
 
 @Entity
+@Table(name = "Answer_Option")
 public class AnswerOption {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +16,16 @@ public class AnswerOption {
 
     private Long questionId;
 
+    private int evaluationPoint;
+
+    public AnswerOption( Long questionId,String text, int evaluationPoint) {
+        this.text = text;
+        this.questionId = questionId;
+        this.evaluationPoint = evaluationPoint;
+    }
+
+    public AnswerOption() {
+    }
 
     // Getters and Setters
     public long getId() {
@@ -39,5 +50,13 @@ public class AnswerOption {
 
     public void setQuestionId(Long questionId) {
         this.questionId = questionId;
+    }
+
+    public int getEvaluationPoint() {
+        return evaluationPoint;
+    }
+
+    public void setEvaluationPoint(int evaluationPoint) {
+        this.evaluationPoint = evaluationPoint;
     }
 }

@@ -3,6 +3,13 @@ INSERT INTO Question (id, text, matrix_type) VALUES (1, 'How does your organizat
 INSERT INTO question_category (question_id, category) VALUES (1, 'STRATEGY_AND_GOVERNANCE');
 INSERT INTO question_category (question_id, category) VALUES (1, 'ADOPTION_AND_CULTURE');
 
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Strongly Disagree', 1, -2);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Somewhat Disagree', 1, -1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Neutral', 1, 0);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Somewhat Agree', 1, 1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Strongly Agree', 1, 2);
+
+
 -- Question 2
 INSERT INTO Question (id, text, matrix_type) VALUES (2, 'What mechanisms are in place for data governance and integrity?', 'AI');
 INSERT INTO question_category (question_id, category) VALUES (2, 'DATA_MANAGEMENT');
