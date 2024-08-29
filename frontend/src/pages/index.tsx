@@ -9,7 +9,10 @@ export default function Home() {
           <Link href="/llm">Find the fitting LLM</Link>
         </li>
         <li>
-          <Link href="/matrix">View the AI Maturity Matrix</Link>
+          <Link href="/matrix/ai">View the AI Maturity Matrix</Link>
+        </li>
+        <li>
+          <Link href="/matrix/team">View the Team Maturity Matrix</Link>
         </li>
       </ul>
     </div>

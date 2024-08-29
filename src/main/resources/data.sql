@@ -321,3 +321,99 @@ INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Team wo
 -- Question 6 for TEAM (Team Dynamics)
 INSERT INTO Question (id, text, matrix_type) VALUES (106, 'How do you see your team working agreement?', 'TEAM');
 INSERT INTO question_category (question_id, category) VALUES (106, 'TEAM_DYNAMICS');
+
+-- Answer Options for Question 106 (Team Working Agreement)
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Non-existent', 106, -2);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Some defacto team norms that are generally recognized, but haven''t yet been written down and agreed on by the team.', 106, -1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('There is a documented team working agreement, agreed on by the team, clearly visible in a public area such as the team room or Confluence page.', 106, 0);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Followed by the team and includes elements related to the process the teamwork. Working agreement is regularly inspected and kept up to date.', 106, 1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Followed naturally, exceptions are quickly identified and addressed.', 106, 2);
+
+-- Question 7 for TEAM (Team Environment - Team Size)
+INSERT INTO Question (id, text, matrix_type) VALUES (107, 'How do you see your team size?', 'TEAM');
+INSERT INTO question_category (question_id, category) VALUES (107, 'TEAM_ENVIRONMENT');
+
+-- Answer Options for Question 107 (Team Size)
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('>15 people on team', 107, -2);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('It is recognized that a smaller team size is needed and there is either a near term plan or the team is actively being reduced in size.', 107, -1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('< 15 people on the team', 107, 0);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('< 10 people on the team', 107, 1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Between 5-7 people on the team', 107, 2);
+
+-- Question 8 for TEAM (Team Environment - Dedicated Team)
+INSERT INTO Question (id, text, matrix_type) VALUES (108, 'How do you see your dedicated team?', 'TEAM');
+INSERT INTO question_category (question_id, category) VALUES (108, 'TEAM_ENVIRONMENT');
+
+-- Answer Options for Question 108 (Dedicated Team)
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Most team members are on multiple teams or working on multiple projects', 108, -2);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Most people are at least 50% allocated to the team. Nobody is less than 30% allocated to the team.', 108, -1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Most people are >=70% allocated to the team. Nobody is less than 50% allocated to the team.', 108, 0);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Most people are >=90% allocated to the team. Nobody is less than 70% allocated to the team.', 108, 1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('All team members are 100% allocated to the team.', 108, 2);
+
+-- Question 9 for TEAM (Team Environment - Continuity)
+INSERT INTO Question (id, text, matrix_type) VALUES (109, 'How do you see your team continuity?', 'TEAM');
+INSERT INTO question_category (question_id, category) VALUES (109, 'TEAM_ENVIRONMENT');
+
+-- Answer Options for Question 109 (Continuity)
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Constant churn of people on the team and/or team was formed for a single release or a single major initiative and will be disbanded after shipping.', 109, -2);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('There is an understanding that this is important, progress is being made, and further steps are being taken to get to the next stage.', 109, -1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('50%+ of the team is constant over the past 9 months and team has made multiple production releases or worked on multiple major initiatives without being reformed each time.', 109, 0);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('More than 70% of the team is constant over the past 9 months and team has made multiple production releases and worked on multiple major initiatives without being reformed each time.', 109, 1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('More than 90% of the team has been constant over the past 12 months.', 109, 2);
+
+-- Question 10 for TEAM (Team Environment - Cross Functional)
+INSERT INTO Question (id, text, matrix_type) VALUES (110, 'How do you see your team cross functionality?', 'TEAM');
+INSERT INTO question_category (question_id, category) VALUES (110, 'TEAM_ENVIRONMENT');
+
+-- Answer Options for Question 110 (Cross Functional)
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('A significant portion of what is needed to get the stories to done exists outside of the team.', 110, -2);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Some of the skills necessary to get the stories to done exist outside of the team.', 110, -1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('All of the necessary skills for performing the work exist on the team.', 110, 0);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('All of the necessary skills for performing the work exist on the team and there is some cross training of skills.', 110, 1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('All of the necessary skills for performing the work exist on the team and most of the team is cross trained on most of those skills.', 110, 2);
+
+-- Question 11 for TEAM (Team Environment - Collocation)
+INSERT INTO Question (id, text, matrix_type) VALUES (111, 'How do you see your team collocation?', 'TEAM');
+INSERT INTO question_category (question_id, category) VALUES (111, 'TEAM_ENVIRONMENT');
+
+-- Answer Options for Question 111 (Collocation)
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Team members have very little proximity to each other and/or team are in the different time zones with large time differences.', 111, -2);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Team members have face to face interactions at least once a quarter and the time differences are less than 6 hours.', 111, -1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Team members have face to face interactions at least once a month, time differences less than 4 hours. Collaboration and communication tools are in place and used on a daily basis (Teams, Slack, Miro…)', 111, 0);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Team members met regularly for the important meetings (e.g. Planning), time zone difference is less than 2 hours, Collaboration and communication tools are in place and first rules how to use them are in place (Teams, Slack, Miro…)', 111, 1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Team members meet at least once a week, time zone difference is less than 2 hours, Collaboration & communication tools with usage rules are in place (Teams, Slack, Miro…)', 111, 2);
+
+-- Question 12 for TEAM (Team Environment - Self Organization)
+INSERT INTO Question (id, text, matrix_type) VALUES (112, 'How do you see your team self organization?', 'TEAM');
+INSERT INTO question_category (question_id, category) VALUES (112, 'TEAM_ENVIRONMENT');
+
+-- Answer Options for Question 112 (Self Organization)
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Most people do not have the ability to choose what they work on, estimates are not determined by the team. Team does not feel like it can make decisions on its own. Some members just want to be told what to do.', 112, -2);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Some of the behaviors from the next stage are being discussed, encouraged, or tried.', 112, -1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Teams are pulling work from the product backlog themselves, doing their own team-based estimation, choosing what to work on themselves, and using the definitions of ready and done to guide interaction with those outside the team.', 112, 0);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('The responsibilities of the Team Coach are shared by the entire team and the need for a designated and/or dedicated Team Coach is significantly reduced. When some members of the team are not present, the team is able to adjust and continue getting stories done.', 112, 1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('The team is fully self organized.', 112, 2);
+
+-- Question 13 for TEAM (Team Environment - Creativity & Innovation)
+INSERT INTO Question (id, text, matrix_type) VALUES (113, 'How do you see your team creativity and innovation?', 'TEAM');
+INSERT INTO question_category (question_id, category) VALUES (113, 'TEAM_ENVIRONMENT');
+
+-- Answer Options for Question 113 (Creativity & Innovation)
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('We are focused on getting work done as it''s been defined for us. No one has time to be creative, nor is it encouraged.', 113, -2);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('We are encouraged to think outside-the-box. However, we are constrained by existing solutions. Therefore it is not safe to fail or try new things.', 113, -1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('We are empowered to design creative ideas to solve problems and challenge existing solutions. It is safe to experiment and learn.', 113, 0);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('We have designed several innovative solutions that our customers have been thrilled with! We make time for innovation (Hackathons, dedicated Innovation/Exploration days).', 113, 1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Innovation is a cultural norm.', 113, 2);
+
+-- Question 14 for TEAM (Team Environment - Impediments)
+INSERT INTO Question (id, text, matrix_type) VALUES (114, 'How do you see your team handling impediments?', 'TEAM');
+INSERT INTO question_category (question_id, category) VALUES (114, 'TEAM_ENVIRONMENT');
+
+-- Answer Options for Question 114 (Impediments)
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Invisible and/or ignored. Fear of reprisals. Reluctance to raise impediments. Impediments that are raised are not resolved.', 114, -2);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Raising impediments is actively encouraged and is frequently done. Some impediments are resolved. The team is beginning to see the benefits of this practice and feel comfortable practicing it.', 114, -1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Raising impediments is becoming routine and there is a high degree of comfort in doing it. Impediments are usually resolved. Root cause analysis is sometimes performed and there is a growing recognition of the value of raising impediments.', 114, 0);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Impediment raising and resolution are a cultural norm. Individual and team impediments that can be addressed at those levels are addressed. Root cause analysis is frequently performed and acted on.', 114, 1);
+INSERT INTO Answer_Option (text, question_id, evaluation_point) VALUES ('Root cause analysis and resolution is a cultural norm.', 114, 2);
+

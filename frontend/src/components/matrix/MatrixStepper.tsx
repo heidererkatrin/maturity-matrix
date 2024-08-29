@@ -11,7 +11,7 @@ interface Question {
 
 interface AnswerOption {
   text: string;
-  evaluationPoint: number;
+  evaluationPoints: number;
 }
 
 interface AnswerDTO {
@@ -31,7 +31,14 @@ interface MatrixResult {
   level: number;
 }
 
-const MatrixStepper: React.FC = () => {
+interface MatrixStepperProps {
+  matrixType: string;
+}
+
+const MatrixStepper: React.FC<MatrixStepperProps> = ({ matrixType }) => {
+  // Ensure matrixType is always uppercase
+  const upperCaseMatrixType = matrixType ? matrixType.toUpperCase() : '';
+
   const [categories, setCategories] = useState<string[]>([]);
   const [categoryTexts, setCategoryTexts] = useState<{ [key: string]: string }>({});
   const [questions, setQuestions] = useState<{ [key: string]: Question[] }>({});
@@ -74,9 +81,11 @@ const MatrixStepper: React.FC = () => {
       try {
         const [questionsResponse, descriptionsResponse] = await Promise.all([
           axios.get<{ [key: string]: Question[] }>('/api/questions', {
-            params: { matrixType: 'AI' }
+            params: { matrixType: upperCaseMatrixType }
           }),
-          axios.get<MatrixDescription[]>('/api/matrixTable')
+          axios.get<MatrixDescription[]>('/api/matrixTable', {
+            params: { matrixType: upperCaseMatrixType }
+          })
         ]);
 
         const fetchedCategories = Object.keys(questionsResponse.data);
@@ -93,7 +102,7 @@ const MatrixStepper: React.FC = () => {
     };
 
     fetchQuestionsAndDescriptions();
-  }, []);
+  }, [upperCaseMatrixType]);
 
   useEffect(() => {
     if (currentCategory && questions[currentCategory] && questions[currentCategory][currentQuestionIndex]) {
@@ -136,7 +145,7 @@ const MatrixStepper: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>AI Maturity Matrix Assessment</h1>
+      <h1 className={styles.title}>{upperCaseMatrixType} Maturity Matrix Assessment</h1>
       <div className={styles.stepper}>
         {categories.map((category) => (
           <div
@@ -154,8 +163,8 @@ const MatrixStepper: React.FC = () => {
           <p>{currentQuestion.text}</p>
           <div className={styles.answers}>
             {answerOptions.map((option, index) => (
-              <button key={index} onClick={() => handleAnswer(option.evaluationPoint)}>
-                {option.text} ({option.evaluationPoint})
+              <button key={index} onClick={() => handleAnswer(option.evaluationPoints)}>
+                {option.text}
               </button>
             ))}
           </div>

@@ -9,6 +9,11 @@ public enum Category {
     BUSINESS_IMPACT("Business Impact"),
     ETHICS_AND_COMPLIANCE("Ethics and Compliance"),
     ADOPTION_AND_CULTURE ("Adoption and culture"),
+    TEAM_DYNAMICS("Team dynamics"),
+    TEAM_ENVIRONMENT("Team environment"),
+    PRODUCT("Product"),
+    AGILE_PROCESS_MECHANICS("Agile Process Mechanics"),
+    AGILE_ENGINEERING_PRACTICES("Agile Engineering Practices"),
     ;
 
     private String text;
